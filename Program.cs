@@ -11,6 +11,7 @@ namespace discord_webhook_sender
         public static string username;
         public static string description;
         public static string title;
+        public static string color;
         static void Main()
         {
             Console.Title = "Webhook Sender By RssMario#9999";
@@ -22,6 +23,9 @@ namespace discord_webhook_sender
             description = Console.ReadLine();
             Console.Write("What title: ");
             title = Console.ReadLine();
+            //Color must be hex numbers with the #!
+            Console.Write("What Color: ");
+            color = Console.ReadLine();
             send_webhook(webhook);
         }
         public static void send_webhook(string url)
@@ -29,7 +33,7 @@ namespace discord_webhook_sender
             var dc = WebRequest.Create(url);
             dc.ContentType = "application/json";
             dc.Method = "POST";
-            string postdata = "{\"username\": \"" + username + "\",\"embeds\":[    {\"description\":\"" + description + "\", \"title\":\"" + title + "\", \"color\":1018364}]  }";
+            string postdata = "{\"username\": \"" + username + "\",\"embeds\":[    {\"description\":\"" + description + "\", \"title\":\"" + title + "\", \"color\":" + color + "}]  }";
             using (var sw = new StreamWriter(dc.GetRequestStream()))
             sw.Write(postdata);
             dc.GetResponse();
