@@ -14,7 +14,7 @@ namespace discord_webhook_sender
         public static string color;
         static void Main()
         {
-            Console.Title = "Webhook Sender By RssMario#9999";
+            Console.Title = "Webhook Sender By Brian";
             Console.Write("Whats your webhook: ");
             webhook = Console.ReadLine();
             Console.Write("What username: ");
